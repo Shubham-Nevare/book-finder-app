@@ -1,5 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/footer";
+import Header from "./components/Header";
+import { BookmarkProvider } from "./components/BookmarkContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -12,18 +15,25 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "book-finder-app",
-  description: "book-finder-app for alex",
+  title: "Alex's Book Finder",
+  description: "Find your next favorite book with Alex's Book Finder",
+  icons: {
+    icon: "data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <BookmarkProvider>
+      <Header />
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </html>
+      <Footer />
+    </BookmarkProvider>
   );
 }
