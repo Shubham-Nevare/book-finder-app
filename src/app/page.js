@@ -266,7 +266,7 @@ export default function AlexBookFinder() {
           <div>
             <h1 className="text-3xl font-bold tracking-tight flex items-center gap-3">
               <BookOpen className="h-8 w-8" />
-              Alex's Book Finder
+              Alex&apos;s Book Finder
             </h1>
             <p className="text-gray-600">Find books by title, author, subject, or ISBN. Save your favorites for later.</p>
           </div>
