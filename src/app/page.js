@@ -7,11 +7,9 @@ import {
   BookOpen,
   Bookmark,
   BookmarkCheck,
-  Filter,
   X,
   Loader2,
   ExternalLink,
-  Download,
   ChevronDown,
   ChevronUp,
   SlidersHorizontal,
@@ -60,22 +58,7 @@ function useDebouncedValue(value, delay = 500) {
   return v;
 }
 
-function useLocalStorage(key, initial) {
-  const [val, setVal] = useState(() => {
-    try {
-      const raw = localStorage.getItem(key);
-      return raw ? JSON.parse(raw) : initial;
-    } catch {
-      return initial;
-    }
-  });
-  useEffect(() => {
-    try {
-      localStorage.setItem(key, JSON.stringify(val));
-    } catch {}
-  }, [key, val]);
-  return [val, setVal];
-}
+// ...existing code...
 
 function buildApiUrl({
   field,
